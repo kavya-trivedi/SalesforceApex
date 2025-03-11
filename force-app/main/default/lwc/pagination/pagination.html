@@ -1,0 +1,15 @@
+<template>
+    <div class="pagination-container">
+        <template if:true={paginatedItems.length}>
+            <div class="items-container">
+                <slot name="items" data-items={paginatedItems}></slot>
+            </div>
+
+            <div class="pagination-controls">
+                <lightning-button label="Previous" onclick={handlePrevious} disabled={disablePrev}></lightning-button>
+                <span> Page {currentPage} of {totalPages} </span>
+                <lightning-button label="Next" onclick={handleNext} disabled={disableNext}></lightning-button>
+            </div>
+        </template>
+    </div>
+</template>

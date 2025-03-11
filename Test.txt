@@ -1,0 +1,15 @@
+Account acc1 = [SELECT Name, Id FROM Account where Name = 'MV_Kavya Trivedi' LIMIT 1];
+
+Account acc2 = [SELECT Name, Id FROM Account where Name = 'MV_Rutvi' LIMIT 1];
+
+List<Contact> conList = new List<Contact>();
+
+Contact con1 = [Select Id, AccountId from Contact where LastName = 'MVClouds_Kavya Child 1' LIMIT 1];
+con1.AccountId = acc2.Id;
+conList.add(con1);
+
+Contact con2 = [Select Id, AccountId from Contact where LastName = 'MVClouds_Rutvi Child 1' LIMIT 1];
+con2.AccountId = acc1.Id;
+conList.add(con2);
+
+update conList;

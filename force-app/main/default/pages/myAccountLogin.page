@@ -1,0 +1,13 @@
+<apex:page controller="loginController">
+    <apex:form >
+        <apex:pageBlock title="Account Login" mode="edit">
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton action="{!doLogin}" value="Login" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="My Account">
+                <apex:inputText value="{!myEmail}" label="Email" required="true" />
+                <apex:inputSecret value="{!myPassword}" label="Password" required="true" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

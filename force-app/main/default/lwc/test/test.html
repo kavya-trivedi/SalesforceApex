@@ -1,0 +1,13 @@
+<template>
+    <div class="container">
+        <template for:each={displayedTiles} for:item="tile">
+            <div key={tile.id} class="tile">{tile.label}</div>
+        </template>
+    </div>
+    <div class="pagination">
+        <lightning-button-group>
+            <lightning-button label="Previous" onclick={handlePrevious} disabled={disablePrevious}></lightning-button>
+            <lightning-button label="Next" onclick={handleNext} disabled={disableNext}></lightning-button>
+        </lightning-button-group>
+    </div>
+</template>

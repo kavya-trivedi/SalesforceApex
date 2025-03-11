@@ -1,0 +1,25 @@
+<apex:page controller="AccOppController">
+    <apex:pageBlock title="Viewing Accounts">
+        <apex:pageBlockButtons location="top" >
+            <apex:outputPanel id="myButtons">
+                <apex:form >
+                    <apex:commandButton action="{!Beginning}" title="Beginning" value="<<" disabled="{!disablePrevious}" reRender="myPanel,myButtons"/>
+                    <apex:commandButton action="{!Previous}" title="Previous" value="<" disabled="{!disablePrevious}" reRender="myPanel,myButtons"/>        
+                    <apex:commandButton action="{!Next}" title="Next" value=">" disabled="{!disableNext}" reRender="myPanel,myButtons"/>
+                    <apex:commandButton action="{!End}" title="End" value=">>" disabled="{!disableNext}" reRender="myPanel,myButtons"/>        
+                </apex:form>
+            </apex:outputPanel>
+        </apex:pageBlockButtons>
+        <apex:outputPanel id="myPanel">
+            <apex:form id="theForm">
+                <apex:pageBlockSection >
+                    <apex:dataList var="a" value="{!accounts}" type="1">
+                        <apex:commandLink value="{!a.Name}" action="{!handleAccountClick}">
+                            <apex:param name="accountName" value="{!a.Id}" assignTo="{!selectedAccountId}" />
+                        </apex:commandLink>
+                    </apex:dataList>
+                </apex:pageBlockSection>
+            </apex:form> 
+        </apex:outputPanel>
+    </apex:pageBlock>
+</apex:page>

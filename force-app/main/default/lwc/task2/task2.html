@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Upload and Preview Image">
+
+        <lightning-file-upload
+            label="Attach Receipt"
+            name="fileUploader"
+            accept={acceptedFormats}
+            record-id={myRecordId}
+            onuploadfinished={handleUploadFinished}
+            multiple>
+        </lightning-file-upload>
+
+        <c-task2child image-url={imageUrl}></c-task2child>
+
+    </lightning-card>
+</template>

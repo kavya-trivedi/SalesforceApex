@@ -1,0 +1,14 @@
+<apex:page standardController="MyAccount__c">
+    <apex:form >
+        <apex:pageBlock title="Account Registration" mode="edit">
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton action="{!save}" value="Register" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="My Account">
+                <apex:inputField value="{!MyAccount__c.name}" required="true" />
+                <apex:inputField value="{!MyAccount__c.Email__c}" required="true" />
+                <apex:inputField value="{!MyAccount__c.Password__c}" required="true" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

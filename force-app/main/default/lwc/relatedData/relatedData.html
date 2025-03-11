@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Related Data" icon-name="standard:related_list">
+        <template if:true={contacts.length}>
+            <h3>Contacts</h3>
+            <template for:each={contacts} for:item="contact">
+                <p key={contact.Id}>{contact.Name}</p>
+            </template>
+        </template>
+
+        <template if:true={opportunities.length}>
+            <h3>Opportunities</h3>
+            <template for:each={opportunities} for:item="opportunity">
+                <p key={opportunity.Id}>{opportunity.Name}</p>
+            </template>
+        </template>
+    </lightning-card>
+</template>

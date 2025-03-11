@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Select Account" icon-name="standard:account">
+        <lightning-combobox 
+            label="Accounts"
+            value={selectedAccountId}
+            options={accountOptions}
+            onchange={handleAccountChange}>
+        </lightning-combobox>
+    </lightning-card>
+</template>

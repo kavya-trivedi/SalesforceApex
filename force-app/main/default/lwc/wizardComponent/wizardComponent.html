@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="LWC Wizard">
+        <template if:true={stepOneVisible}>
+            <lightning-combobox
+                label="Select Object"
+                options={objectOptions}
+                value={selectedObject}
+                onchange={handleObjectChange}>
+            </lightning-combobox>
+            <template if:true={records.length}>
+                <lightning-datatable
+                    key-field="id"
+                    data={records}
+                    columns={columns}
+                    onrowselection={handleCheckboxChange}>
+                </lightning-datatable>
+            </template>
+        </template>
+
+        <template if:true={stepTwoVisible}>
+            <lightning-input label="Email Subject" name='subject' value={emailSubject} onchange={handleInputChange}></lightning-input>
+            <lightning-textarea label="Email Body" name='body' value={emailBody} onchange={handleInputChange}></lightning-textarea>
+        </template>
+
+        <template if:true={stepThreeVisible}>
+            <p><strong>Preview:</strong></p>
+            <p>Subject: {emailSubject}</p>
+            <p>Body: {emailBody}</p>
+        </template>
+
+        <lightning-button label="Previous" onclick={prevStep} disabled={isPreviousDisabled}></lightning-button>
+        <lightning-button label="Next" onclick={nextStep} disabled={isNextDisabled}></lightning-button>
+        <lightning-button label="Send Email" onclick={handleSendEmail} if:true={stepThreeVisible}></lightning-button>
+    </lightning-card>
+</template>

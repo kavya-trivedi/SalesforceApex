@@ -1,0 +1,46 @@
+<template>
+    <lightning-card title="Global Search" icon-name="utility:search">
+        <div class="slds-p-around_medium">
+            <!-- Search Bar -->
+            <lightning-input
+                type="text" label="Enter Search Keyword" 
+                value={searchKeyword} 
+                onchange={handleKeywordChange}>
+            </lightning-input><br>
+
+            <!-- Multi-picklist -->
+            <lightning-dual-listbox
+                name="objects"
+                label="Select Objects"
+                source-label="Available Objects"
+                selected-label="Selected Objects"
+                options={objectOptions}
+                value={selectedObjects}
+                onchange={handleObjectChange}>
+            </lightning-dual-listbox><br>
+
+            <!-- Search Button -->
+            <lightning-button label="Search" variant="brand" onclick={handleSearch} class="slds-m-top_medium"></lightning-button>
+        </div>
+
+        <!-- Display Search Results -->
+        <template if:true={searchResults}>
+            <template for:each={searchResults} for:item="result">
+                <lightning-card key={result.objectName} title={result.objectName} icon-name="utility:table">
+                    <div class="slds-p-around_medium">
+                        <template if:true={result.records.length}>
+                            <lightning-datatable
+                                key-field="Id"
+                                data={result.records}
+                                columns={columns}>
+                            </lightning-datatable>
+                        </template>
+                        <template if:false={result.records.length}>
+                            <p>No records found.</p>
+                        </template>
+                    </div>
+                </lightning-card>
+            </template>
+        </template>
+    </lightning-card>
+</template>

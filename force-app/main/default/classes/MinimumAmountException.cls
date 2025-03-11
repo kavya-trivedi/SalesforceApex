@@ -1,0 +1,1 @@
+public with sharing class MinimumAmountException extends Exception{}

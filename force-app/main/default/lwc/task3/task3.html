@@ -1,0 +1,37 @@
+<template>
+    <lightning-card title="Upload and Preview Images">
+        <lightning-file-upload
+            label="Attach Receipts"
+            name="fileUploader"
+            accept={acceptedFormats}
+            record-id={myRecordId}
+            onuploadfinished={handleUploadFinished}
+            multiple>
+        </lightning-file-upload>
+
+        <template if:true={imageUrls.length}>
+            <p>Preview:</p>
+            <div class="image-container">
+                <template for:each={paginatedImages} for:item="imageUrl">
+                    <img key={imageUrl} src={imageUrl} alt="Uploaded Image" class="preview-image" />
+                </template>
+            </div>
+
+            <div class="pagination">
+                <lightning-button 
+                    label="Previous" 
+                    onclick={handlePrevPage} 
+                    disabled={isPrevDisabled}>
+                </lightning-button>
+                
+                <span>Page {currentPage} of {totalPages}</span>
+
+                <lightning-button 
+                    label="Next" 
+                    onclick={handleNextPage} 
+                    disabled={isNextDisabled}>
+                </lightning-button>
+            </div>
+        </template>
+    </lightning-card>
+</template>
