@@ -1,0 +1,33 @@
+<template>
+    <lightning-file-upload
+        label="Attach receipt"
+        name="fileUploader"
+        accept={acceptedFormats}
+        record-id={recordId}
+        onuploadfinished={handleUploadFinished}
+        multiple
+    >
+    </lightning-file-upload>
+    <template if:true={isImageSelected}>
+        <lightning-input type="text" label="Image Height" onchange={handleImageHeight}></lightning-input>
+        <lightning-input type="text" label="Image Width" onchange={handleImageWidth}></lightning-input>
+        <lightning-input type="text" label="Image Alignment" onchange={handleImageAlignment}></lightning-input>
+        <lightning-input type="text" label="Image Margin" onchange={handleImageMargin}></lightning-input>
+    </template>
+    <lightning-input type="text" label="File Label" onchange={handleLabelChange}></lightning-input>
+    <lightning-input type="text" label="File Description" onchange={handleDescriptionChange}></lightning-input>
+    <template if:true={isTextWritten}>
+        <lightning-input type="text" label="Text Size" onchange={handleTextSizeChange}></lightning-input>
+        <lightning-input type="text" label="Text Font" onchange={handleTextFontChange}></lightning-input>
+        <lightning-input type="text" label="Text Color" onchange={handleTextColorChange}></lightning-input>
+        <lightning-input type="text" label="Text Alignment" onchange={handleTextAlignmentChange}></lightning-input>
+    </template>
+    <!-- <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
+        <lightning-button label="Preview" 
+        variant="brand"
+        data-id={file.value}
+        onclick={previewHandler}
+        ></lightning-button>
+    </div> -->
+    <!-- <button onclick="handleClick">Preview</button> -->
+</template>

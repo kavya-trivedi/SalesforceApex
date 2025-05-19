@@ -1,0 +1,10 @@
+<template>
+    <div class="wrapper">
+        <div class="comp-b">
+            <c-component-b onpreview={handlePreview} onimageheight={handleImageHeight} onimagewidth={handleImageWidth} onimagealignment={handleImageAlignment} onimagemargin={handleImageMargin} onlabel={handleLabel} ondescription={handleDescription} ontextsize={handleTextSize} ontextfont={handleTextFont} ontextcolor={handleTextColor} ontextalignment={handleTextAlignment}></c-component-b>
+        </div>
+        <div class="comp-c">
+            <c-component-c image-url={imageUrl} image-height={imageHeight} image-width={imageWidth} image-alignment={imageAlignment} image-margin={imageMargin} label={label} description={description} text-size={textSize} text-font={textFont} text-color={textColor} text-alignment={textAlignment}></c-component-c>
+        </div>
+    </div>
+</template>

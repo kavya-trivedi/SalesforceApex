@@ -1,0 +1,10 @@
+<template>
+    <template if:true={imageUrl}>
+        <p>Child Preview:</p>
+        <div class="container" style={containerCss}>
+            <img src={imageUrl} alt="Uploaded Image" class="preview-image" style={imageCss} />
+        </div>
+        <p class="label" style={textCss}>label: {label}</p>
+        <p class="description" style={textCss}>description: {description}</p>
+    </template>
+</template>

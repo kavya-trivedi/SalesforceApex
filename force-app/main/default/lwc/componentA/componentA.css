@@ -1,0 +1,15 @@
+.wrapper {
+    background-color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow-y: scroll;
+}
+
+.comp-b {
+    width: 50%;
+}
+
+.comp-c {
+    width: 50%;
+}
